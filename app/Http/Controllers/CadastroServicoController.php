@@ -2,11 +2,11 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Cadastro;
-use App\Http\Requests\StoreCadastroRequest;
-use App\Http\Requests\UpdateCadastroRequest;
+use App\Models\CadastroServico;
+use App\Http\Requests\StoreCadastroServicoRequest;
+use App\Http\Requests\UpdateCadastroServicoRequest;
 
-class CadastroController extends Controller
+class CadastroServicoController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -27,7 +27,7 @@ class CadastroController extends Controller
     /**
      * Store a newly created resource in storage.
      */
-    public function store(StoreCadastroRequest $request)
+    public function store(StoreCadastroServicoRequest $request)
     {
         //
     }
@@ -35,7 +35,7 @@ class CadastroController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(Cadastro $cadastro)
+    public function show(CadastroServico $cadastroServico)
     {
         //
     }
@@ -43,7 +43,7 @@ class CadastroController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(Cadastro $cadastro)
+    public function edit(CadastroServico $cadastroServico)
     {
         //
     }
@@ -51,7 +51,7 @@ class CadastroController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(UpdateCadastroRequest $request, Cadastro $cadastro)
+    public function update(UpdateCadastroServicoRequest $request, CadastroServico $cadastroServico)
     {
         //
     }
@@ -59,7 +59,7 @@ class CadastroController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(Cadastro $cadastro)
+    public function destroy(CadastroServico $cadastroServico)
     {
         //
     }
