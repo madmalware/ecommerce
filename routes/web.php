@@ -8,6 +8,8 @@ Route::get('/cadastro', function () {
     return view('cadastro');
 });
 
+Route::get('index', [App\Http\Controllers\AppController::class, 'index'])->name('index');
+
 Route::get('/', function () {
     return view('welcome');
 });
