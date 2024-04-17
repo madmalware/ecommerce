@@ -25,7 +25,7 @@
     <title>Shopix</title>
 
     <link id="rtl-link" rel="stylesheet" type="text/css" href="{{ asset('assets/css/vendors/bootstrap.css') }}">
-    <link rel="stylesheet" href="assets/css/vendors/ion.rangeSlider.min.css">
+    <link rel="stylesheet" href="{{ asset('assets/css/vendors/ion.rangeSlider.min.css') }}">
     <link rel="stylesheet" type="text/css" href="{{ asset('assets/css/vendors/font-awesome.css') }}">
     <link rel="stylesheet" type="text/css" href="{{ asset('assets/css/vendors/feather-icon.css') }}">
     <link rel="stylesheet" type="text/css" href="{{ asset('assets/css/vendors/animate.css') }}">
@@ -142,10 +142,10 @@
                                                 </div>
                                             </li>
                                             <li><a href="index.htm" class="nav-link menu-title">Home</a></li>
-                                            <li><a href="shop.html" class="nav-link menu-title">Shop</a></li>
-                                            <li><a href="cart/list.html" class="nav-link menu-title">Cart</a></li>
-                                            <li><a href="about-us.html" class="nav-link menu-title">About Us</a></li>
-                                            <li><a href="contact-us.html" class="nav-link menu-title">Contact Us</a>
+                                            <li><a href="shop.html" class="nav-link menu-title">Comprar</a></li>
+                                            <li><a href="cart/list.html" class="nav-link menu-title">Carrinho</a></li>
+                                            <li><a href="about-us.html" class="nav-link menu-title">Sobre nós</a></li>
+                                            <li><a href="contact-us.html" class="nav-link menu-title">Contato</a>
                                             </li>
                                             <li><a href="blog.html" class="nav-link menu-title">Blog</a></li>
                                         </ul>
@@ -181,15 +181,15 @@
                                     </li>
                                     <li class="onhover-dropdown">
                                         <div class="cart-media name-usr">
-                                            <i data-feather="user"></i>
+                                            @auth <span>{{Auth::user()->name}}</span> @endauth <i data-feather="user"></i>
                                         </div>
                                         <div class="onhover-div profile-dropdown">
                                             <ul>
                                                 <li>
-                                                    <a href="login.html" class="d-block">Login</a>
+                                                    <a href="{{route('login')}}" class="d-block">Login</a>
                                                 </li>
                                                 <li>
-                                                    <a href="register.html" class="d-block">Register</a>
+                                                    <a href="{{route('cadastro')}}" class="d-block">Cadastre-se</a>
                                                 </li>
 
                                             </ul>
@@ -229,25 +229,25 @@
             <li>
                 <a href="javascript:void(0)">
                     <i data-feather="align-justify"></i>
-                    <span>Category</span>
+                    <span>Categorias</span>
                 </a>
             </li>
             <li>
                 <a href="javascript:void(0)">
                     <i data-feather="shopping-bag"></i>
-                    <span>Cart</span>
+                    <span>Carrinho</span>
                 </a>
             </li>
             <li>
                 <a href="javascript:void(0)">
                     <i data-feather="heart"></i>
-                    <span>Wishlist</span>
+                    <span>Lista de desejos</span>
                 </a>
             </li>
             <li>
                 <a href="user-dashboard.php">
                     <i data-feather="user"></i>
-                    <span>Account</span>
+                    <span>Conta</span>
                 </a>
             </li>
         </ul>
@@ -271,10 +271,10 @@
                             </div>
                             <ul class="contact-lists" style="clear:both;">
                                 <li>
-                                    <span><b>phone:</b> <span class="font-light"> +1 0000000000</span></span>
+                                    <span><b>Telefone:</b> <span class="font-light"> +1 0000000000</span></span>
                                 </li>
                                 <li>
-                                    <span><b>Address:</b><span class="font-light"> NIT, Faridabad, Haryana,
+                                    <span><b>Endereço:</b><span class="font-light"> NIT, Faridabad, Haryana,
                                             India</span></span>
                                 </li>
                                 <li>
@@ -286,7 +286,7 @@
                     <div class="col-lg-2 col-md-4 col-sm-6">
                         <div class="footer-links">
                             <div class="footer-title">
-                                <h3>About us</h3>
+                                <h3>Sobre nós</h3>
                             </div>
                             <div class="footer-content">
                                 <ul>
@@ -312,7 +312,7 @@
                     <div class="col-xl-2 col-lg-3 col-md-4 col-sm-6">
                         <div class="footer-links">
                             <div class="footer-title">
-                                <h3>New Categories</h3>
+                                <h3>Novas Categorias</h3>
                             </div>
                             <div class="footer-content">
                                 <ul>
@@ -338,21 +338,21 @@
                     <div class="col-xl-2 col-lg-3 col-md-4 col-sm-6">
                         <div class="footer-links">
                             <div class="footer-title">
-                                <h3>Get Help</h3>
+                                <h3>Ajuda</h3>
                             </div>
                             <div class="footer-content">
                                 <ul>
                                     <li>
-                                        <a href="#" class="font-dark">Your Orders</a>
+                                        <a href="#" class="font-dark">Seus Pedidos</a>
                                     </li>
                                     <li>
-                                        <a href="#" class="font-dark">Your Account</a>
+                                        <a href="#" class="font-dark">Sua Conta</a>
                                     </li>
                                     <li>
-                                        <a href="#" class="font-dark">Track Orders</a>
+                                        <a href="#" class="font-dark">Rastrear Pedidos</a>
                                     </li>
                                     <li>
-                                        <a href="#" class="font-dark">Your Wishlist</a>
+                                        <a href="#" class="font-dark">Sua Lista de Desejos</a>
                                     </li>
                                     <li>
                                         <a href="#" class="font-dark">Shopping FAQs</a>
@@ -411,7 +411,7 @@
                         </ul>
                     </div>
                     <div class="col-md-6">
-                        <p class="mb-0 font-dark">© 2023, Surfside Media.</p>
+                        <p class="mb-0 font-dark">© 2024, ShoPix.</p>
                     </div>
                 </div>
             </div>
