@@ -185,13 +185,32 @@
                                         </div>
                                         <div class="onhover-div profile-dropdown">
                                             <ul>
-                                                <li>
-                                                    <a href="{{route('login')}}" class="d-block">Login</a>
-                                                </li>
-                                                <li>
-                                                    <a href="{{route('cadastro')}}" class="d-block">Cadastre-se</a>
-                                                </li>
-
+                                                @if(Route::has('login'))
+                                                    @auth
+                                                        @if(Auth::user()->utype === 'ADM')
+                                                            <li>
+                                                                <a href="{{route('admin.index')}}" class="d-block">Dashboard</a>
+                                                            </li>
+                                                        @else
+                                                            <li>
+                                                                <a href="{{route('users.index')}}" onclick="event.prevenDefault();getElementById('frmlogout').submit();" class="d-block">Minha Conta</a>
+                                                            </li>
+                                                        @endif
+                                                            <li>
+                                                                <a href="{{route('logout')}}" class="d-block">Sair</a>
+                                                                <form id="frmlogout" action="{{route('logout')}}" method="POST">
+                                                                    @csrf
+                                                                </form>
+                                                            </li>
+                                                    @else
+                                                        <li>
+                                                            <a href="{{route('login')}}" class="d-block">Login</a>
+                                                        </li>
+                                                        <li>
+                                                            <a href="{{route('cadastro')}}" class="d-block">Cadastre-se</a>
+                                                        </li>
+                                                    @endauth
+                                                @endif
                                             </ul>
                                         </div>
                                     </li>
