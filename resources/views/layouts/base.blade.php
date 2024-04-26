@@ -193,12 +193,12 @@
                                                             </li>
                                                         @else
                                                             <li>
-                                                                <a href="{{route('users.index')}}" onclick="event.prevenDefault();getElementById('frmlogout').submit();" class="d-block">Minha Conta</a>
+                                                                <a href="{{route('users.index')}}" class="d-block">Minha Conta</a>
                                                             </li>
                                                         @endif
                                                             <li>
-                                                                <a href="{{route('logout')}}" class="d-block">Sair</a>
-                                                                <form id="frmlogout" action="{{route('logout')}}" method="POST">
+                                                                <a href="{{route('logout')}}" onclick="event.preventDefault();document.getElementById('frmlogout').submit();" class="d-block">Sair</a>
+                                                                <form id="frmlogout" action="{{route('logout')}}" method="POST" class="d-none">
                                                                     @csrf
                                                                 </form>
                                                             </li>
@@ -207,7 +207,7 @@
                                                             <a href="{{route('login')}}" class="d-block">Login</a>
                                                         </li>
                                                         <li>
-                                                            <a href="{{route('cadastro')}}" class="d-block">Cadastre-se</a>
+                                                            <a href="{{route('register')}}" class="d-block">Cadastre-se</a>
                                                         </li>
                                                     @endauth
                                                 @endif
