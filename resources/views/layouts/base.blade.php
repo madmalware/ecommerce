@@ -120,7 +120,7 @@
                         <div class="main-menu">
                             <div class="menu-left">
                                 <div class="brand-logo">
-                                    <a href="index.htm">
+                                    <a href="{{route('index')}}">
                                         <img src="assets/images/logo.png" class="h-logo img-fluid blur-up lazyload"
                                             alt="logo">
                                     </a>
@@ -141,8 +141,8 @@
                                                     </span>
                                                 </div>
                                             </li>
-                                            <li><a href="index.htm" class="nav-link menu-title">Home</a></li>
-                                            <li><a href="shop.html" class="nav-link menu-title">Comprar</a></li>
+                                            <li><a href="{{route('index')}}" class="nav-link menu-title">Home</a></li>
+                                            <li><a href="{{route('comprar')}}" class="nav-link menu-title">Comprar</a></li>
                                             <li><a href="cart/list.html" class="nav-link menu-title">Carrinho</a></li>
                                             <li><a href="about-us.html" class="nav-link menu-title">Sobre nós</a></li>
                                             <li><a href="contact-us.html" class="nav-link menu-title">Contato</a>
@@ -293,11 +293,10 @@
                                     <span><b>Telefone:</b> <span class="font-light"> +1 0000000000</span></span>
                                 </li>
                                 <li>
-                                    <span><b>Endereço:</b><span class="font-light"> NIT, Faridabad, Haryana,
-                                            India</span></span>
+                                    <span><b>Endereço:</b><span class="font-light">Vitória - ES, Brasil</span></span>
                                 </li>
                                 <li>
-                                    <span><b>Email:</b><span class="font-light"> contact@surfsidemedia.in</span></span>
+                                    <span><b>Email:</b><span class="font-light"> contact@Shopix.com</span></span>
                                 </li>
                             </ul>
                         </div>

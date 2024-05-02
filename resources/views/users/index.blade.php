@@ -1,5 +1,5 @@
 @extends('layouts.base')
 
 @section('content')
-    <h1>Admin Dashboard</h1>
+    <h1>User Dashboard</h1>
 @endsection
