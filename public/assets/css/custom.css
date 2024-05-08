@@ -1,14 +1,22 @@
-.text-color{color:#6d6d6d;}
+.text-color
+{
+color:#6d6d6d;
+}
+
 section{padding-top:80px;}
+
 @media (max-width: 1460px){
 section{padding-top:70px;}
 }
+
 @media (max-width: 1199px){
 section{padding-top:60px;}
 }
+
 @media (max-width: 991px){
 section{padding-top:50px;}
 }
+
 @media (max-width: 767px){
 section{padding-top:40px;}
 }

@@ -2,11 +2,11 @@
 
 namespace App\Policies;
 
+use App\Models\Marca;
 use App\Models\User;
-use App\Models\cadastroProduto;
 use Illuminate\Auth\Access\Response;
 
-class CadastroProdutoPolicy
+class MarcaPolicy
 {
     /**
      * Determine whether the user can view any models.
@@ -19,7 +19,7 @@ class CadastroProdutoPolicy
     /**
      * Determine whether the user can view the model.
      */
-    public function view(User $user, cadastroProduto $cadastroProduto): bool
+    public function view(User $user, Marca $marca): bool
     {
         //
     }
@@ -35,7 +35,7 @@ class CadastroProdutoPolicy
     /**
      * Determine whether the user can update the model.
      */
-    public function update(User $user, cadastroProduto $cadastroProduto): bool
+    public function update(User $user, Marca $marca): bool
     {
         //
     }
@@ -43,7 +43,7 @@ class CadastroProdutoPolicy
     /**
      * Determine whether the user can delete the model.
      */
-    public function delete(User $user, cadastroProduto $cadastroProduto): bool
+    public function delete(User $user, Marca $marca): bool
     {
         //
     }
@@ -51,7 +51,7 @@ class CadastroProdutoPolicy
     /**
      * Determine whether the user can restore the model.
      */
-    public function restore(User $user, cadastroProduto $cadastroProduto): bool
+    public function restore(User $user, Marca $marca): bool
     {
         //
     }
@@ -59,7 +59,7 @@ class CadastroProdutoPolicy
     /**
      * Determine whether the user can permanently delete the model.
      */
-    public function forceDelete(User $user, cadastroProduto $cadastroProduto): bool
+    public function forceDelete(User $user, Marca $marca): bool
     {
         //
     }

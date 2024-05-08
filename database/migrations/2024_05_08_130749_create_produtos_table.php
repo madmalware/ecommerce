@@ -15,8 +15,12 @@ return new class extends Migration
             $table->id();
             $table->string('pequena_descricao');
             $table->text('descricao');
-            $table->string('image');
+            $table->string('image')->nullable();
+            $table->unsignedBigInteger('categoria_id');
+            $table->unsignedBigInteger('marca_id');
             $table->timestamps();
+            $table->foreign('categoria_id')->references('id')->on('categorias')->onDelete('cascade');
+            $table->foreign('marca_id')->references('id')->on('marcas')->onDelete('cascade');
         });
     }
 

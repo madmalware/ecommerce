@@ -121,7 +121,7 @@
                             <div class="menu-left">
                                 <div class="brand-logo">
                                     <a href="{{route('index')}}">
-                                        <img src="assets/images/logo.png" class="h-logo img-fluid blur-up lazyload"
+                                        <img src="" class="h-logo img-fluid blur-up lazyload"
                                             alt="logo">
                                     </a>
                                 </div>

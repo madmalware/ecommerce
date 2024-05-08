@@ -2,11 +2,11 @@
 
 namespace App\Policies;
 
+use App\Models\Categoria;
 use App\Models\User;
-use App\Models\cadastro;
 use Illuminate\Auth\Access\Response;
 
-class CadastroPolicy
+class CategoriaPolicy
 {
     /**
      * Determine whether the user can view any models.
@@ -19,7 +19,7 @@ class CadastroPolicy
     /**
      * Determine whether the user can view the model.
      */
-    public function view(User $user, cadastro $cadastro): bool
+    public function view(User $user, Categoria $categoria): bool
     {
         //
     }
@@ -35,7 +35,7 @@ class CadastroPolicy
     /**
      * Determine whether the user can update the model.
      */
-    public function update(User $user, cadastro $cadastro): bool
+    public function update(User $user, Categoria $categoria): bool
     {
         //
     }
@@ -43,7 +43,7 @@ class CadastroPolicy
     /**
      * Determine whether the user can delete the model.
      */
-    public function delete(User $user, cadastro $cadastro): bool
+    public function delete(User $user, Categoria $categoria): bool
     {
         //
     }
@@ -51,7 +51,7 @@ class CadastroPolicy
     /**
      * Determine whether the user can restore the model.
      */
-    public function restore(User $user, cadastro $cadastro): bool
+    public function restore(User $user, Categoria $categoria): bool
     {
         //
     }
@@ -59,7 +59,7 @@ class CadastroPolicy
     /**
      * Determine whether the user can permanently delete the model.
      */
-    public function forceDelete(User $user, cadastro $cadastro): bool
+    public function forceDelete(User $user, Categoria $categoria): bool
     {
         //
     }

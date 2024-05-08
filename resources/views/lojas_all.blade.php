@@ -1,1 +1,0 @@
-<h1> Todas as Lojas! </h1>

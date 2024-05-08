@@ -14,9 +14,8 @@ class Produto extends Model
         return $this->belongsTo(Categoria::class, 'categoria_id');
     }
 
-    public function servico()
+    public function marca()
     {
-        return $this->belongsTo(Servico::class, 'servico_id');
+        return $this->belongsTo(Marca::class, 'marca_id');
     }
-
 }
