@@ -16,8 +16,12 @@ class CategoriaFactory extends Factory
      */
     public function definition(): array
     {
+        $categoria_nome = $this->faker->unique()->words($nb=2,$asText = true);
+        $slug = Str::slug($categoria_nome);
         return [
-            //
+            'nome' => Str::title($categoria_nome),
+            'slug'=>$slug,
+            'image' => $this->faker->numberBetween(1,6).'.jpg'
         ];
     }
 }

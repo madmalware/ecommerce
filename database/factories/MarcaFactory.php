@@ -16,8 +16,12 @@ class MarcaFactory extends Factory
      */
     public function definition(): array
     {
+        $marca_nome = $this->faker->unique()->words($nb=2,$asText = true);
+        $slug = Str::slug($marca_nome);
         return [
-            //
+            'nome' => Str::title($marca_nome),
+            'slug'=>$slug,
+            'image' => $this->faker->numberBetween(1,6).'.jpg'
         ];
     }
 }

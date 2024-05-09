@@ -15,6 +15,9 @@ return new class extends Migration
             $table->id();
             $table->string('pequena_descricao');
             $table->text('descricao');
+            $table->decimal('preco_regular');
+            $table->decimal('preco_venda')->nullable();
+            $table->unsignedInteger('quantidade')->default(1);
             $table->string('image')->nullable();
             $table->unsignedBigInteger('categoria_id');
             $table->unsignedBigInteger('marca_id');
