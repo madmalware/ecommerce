@@ -1,5 +1,9 @@
 @extends("layouts.base")
 
+@push('styles')
+    <link id="color-link" rel="stylesheet" type="text/css" href="{{asset('assets/css/demo2.css')}}">
+@endpush
+
 @section("content")
 
 <section class="breadcrumb-section section-b-space" style="padding-top:20px;padding-bottom:20px;">
@@ -110,13 +114,13 @@
                                 </div>
 
                                 <h3 class="price-detail">
-                                    @if($product->sale_price)
-                                        ${{$product->sale_price}}
-                                    <del>${{$product->regular_price}}</del><span>
-                                        {{ round((($product->regular_price - $product->sale_price)/$product->regular_price)*100) }}
+                                    @if($produto->preco_venda)
+                                        ${{$produto->preco_venda}}
+                                    <del>${{$produto->preco_regular}}</del><span>
+                                        {{ round((($produto->preco_regular - $produto->preco_venda)/$produto->preco_regular)*100) }}
                                         % off</span>
                                     @else
-                                        {{$product->regular_price}}
+                                        {{$produto->preco_regular}}
                                     @endif
                                 
                                 </h3>
