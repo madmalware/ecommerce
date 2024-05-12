@@ -13,10 +13,13 @@ return new class extends Migration
     {
         Schema::create('produtos', function (Blueprint $table) {
             $table->id();
+            $table->string('nome');
+            $table->string('slug')->unique();
             $table->string('pequena_descricao');
             $table->text('descricao');
             $table->decimal('preco_regular');
             $table->decimal('preco_venda')->nullable();
+            $table->enum('estoque_status',["em_estoque","sem_estoque"]);
             $table->unsignedInteger('quantidade')->default(1);
             $table->string('image')->nullable();
             $table->unsignedBigInteger('categoria_id');
