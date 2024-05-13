@@ -783,4 +783,93 @@
     </div>
 </section>
 
+<section class="ratio_asos section-b-space overflow-hidden">
+    <div class="container">
+        <div class="row">
+            <div class="col-12">
+                <h2 class="mb-lg-4 mb-3">Customers Also Bought These</h2>
+                <div class="product-wrapper product-style-2 slide-4 p-0 light-arrow bottom-space">
+                    @foreach ($rproducts as $rproduct)
+                                            
+                    <div>
+                        <div class="product-box">
+                            <div class="img-wrapper">
+                                <div class="front">
+                                    <a href="{{route('shop.product.details',['slug'=>$rproduct->slug])}}">
+                                        <img src="{{asset('assets/images/fashion/product/front')}}/{{$rproduct->image}}"
+                                            class="bg-img blur-up lazyload" alt="">
+                                    </a>
+                                </div>
+                                <div class="back">
+                                    <a href="{{route('shop.product.details',['slug'=>$rproduct->slug])}}">
+                                        <img src="{{asset('assets/images/fashion/product/back')}}/{{$rproduct->image}}"
+                                            class="bg-img blur-up lazyload" alt="">
+                                    </a>
+                                </div>
+                                <div class="cart-wrap">
+                                    <ul>
+                                        <li>
+                                            <a href="javascript:void(0)" class="addtocart-btn"
+                                                data-bs-toggle="modal" data-bs-target="#addtocart">
+                                                <i data-feather="shopping-bag"></i>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="javascript:void(0)" data-bs-toggle="modal"
+                                                data-bs-target="#quick-view">
+                                                <i data-feather="eye"></i>
+                                            </a>
+                                        </li>
+
+                                        <li>
+                                            <a href="javascript:void(0)" class="wishlist">
+                                                <i data-feather="heart"></i>
+                                            </a>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="product-details">
+                                <div class="rating-details">
+                                    <span class="font-light grid-content">Cupiditate Minus</span>
+                                    <ul class="rating mt-0">
+                                        <li>
+                                            <i class="fas fa-star theme-color"></i>
+                                        </li>
+                                        <li>
+                                            <i class="fas fa-star theme-color"></i>
+                                        </li>
+                                        <li>
+                                            <i class="fas fa-star"></i>
+                                        </li>
+                                        <li>
+                                            <i class="fas fa-star"></i>
+                                        </li>
+                                        <li>
+                                            <i class="fas fa-star"></i>
+                                        </li>
+                                    </ul>
+                                </div>
+                                <div class="main-price">
+                                    <a href="{{route('shop.product.details',['slug'=>$rproduct->slug])}}" class="font-default">
+                                        <h5>{{$rproduct->name}}</h5>
+                                    </a>
+                                    <div class="listing-content">
+                                        <span class="font-light">{{$rproduct->category->name}}</span>
+                                        <p class="font-light">{{$rproduct->short_description}}</p>
+                                    </div>
+                                    <h3 class="theme-color">@if($rproduct->sale_price) {{ $product->sale_price }} @else {{$rproduct->regular_price}} @endif</h3>
+                                    <button onclick="location.href = 'cart.html';" class="btn listing-content">Add
+                                        To Cart</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    @endforeach                    
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
 @endsection
