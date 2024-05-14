@@ -7,6 +7,7 @@
 @section("content")
 
 <section class="breadcrumb-section section-b-space" style="padding-top:20px;padding-bottom:20px;">
+
     <ul class="circles">
         <li></li>
         <li></li>
@@ -19,6 +20,7 @@
         <li></li>
         <li></li>
     </ul>
+
     <div class="container">
         <div class="row">
             <div class="col-12">
@@ -36,7 +38,7 @@
             </div>
         </div>
     </div>
-</section> <!-- Shop Section start -->
+</section>
 
 <section>
     <div class="container">
@@ -51,9 +53,9 @@
                                         <div>
                                             <img src="{{asset('assets/images/fashion/product/front')}}/{{$produto->image}}" class="img-fluid blur-up lazyload" alt="{{$produto->nome}}">
                                         </div>
-                                        @if($product->images) 
+                                        @if($produto->images) 
                                         @php 
-                                            $images = explode(',',$product->images);
+                                            $images = explode(',',$produto->images);
                                         @endphp  
                                         @foreach ($images as $image)
                                             <div>
@@ -67,12 +69,12 @@
                                 <div class="col-lg-10">
                                     <div class="details-image-1 ratio_asos">
                                         <div>
-                                            <img src="{{asset('assets/images/fashion/product/front')}}/{{$product->image}}" class="img-fluid w-100 image_zoom_cls-0 blur-up lazyload" alt="{{$product->name}}">
+                                            <img src="{{asset('assets/images/fashion/product/front')}}/{{$produto->image}}" class="img-fluid w-100 image_zoom_cls-0 blur-up lazyload" alt="{{$product->name}}">
                                         </div>
 
-                                        @if($product->images) 
+                                        @if($produto->images) 
                                         @php 
-                                            $images = explode(',',$product->images);
+                                            $images = explode(',',$produto->images);
                                         @endphp  
                                         @foreach ($images as $image)
                                             <div>
