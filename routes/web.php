@@ -12,7 +12,7 @@ Route::get('/cadastro', function () {
 Route::get('index', [App\Http\Controllers\AppController::class, 'index'])->name('index');
 
 //COMPRAR CONTROLLER
-Route::get('comprar', [ComprarController::class, 'index'])->name('comprar');
+Route::get('/comprar', [ComprarController::class, 'index'])->name('comprar');
 Route::get('/produto/{slug}',[ComprarController::class,'detalheProduto'])->name('produto.detalhe');
 
 //CARRINHO

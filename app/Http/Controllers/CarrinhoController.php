@@ -22,7 +22,7 @@ class CarrinhoController extends Controller
     {
         $produto = Produto::find($request->id);
         $preco = $produto->preco_venda ? $produto->preco_venda : $produto->preco_regular;
-        Cart::instance('carrinho')->add($produto->id,$produto->nome,$request->quantidade,$preco)->associate('App\Models\Produto');
+        Cart::instance('carrinho')->add($produto->id,$produto->nome,$request->quantidade, $preco)->associate('App\Models\Produto');
         return redirect()->back()->with('mensagem','Sucesso ! O item foi adicionado com sucesso!');
     }  
 
@@ -46,9 +46,6 @@ class CarrinhoController extends Controller
         return redirect()->route('carrinho');
     }
 
-    /**
-     * Remove the specified resource from storage.
-     */
     public function delete(Request $request)
     {
         $rowId = $request->rowId;

@@ -46,7 +46,7 @@
                             <th scope="col">preço</th>
                             <th scope="col">quantidade</th>
                             <th scope="col">total</th>
-                            <th scope="col">ação</th>
+                            <th scope="col">excluir</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -69,7 +69,7 @@
                                         </div>
                                     </div>
                                     <div class="col">
-                                        <h2>${{$item->preco}}</h2>
+                                        <h2>${{number_format($item->model->preco_venda ?? $item->model->preco_regular, 2, ',', '.')}}</h2>
                                     </div>
                                     <div class="col">
                                         <h2 class="td-color">
@@ -81,12 +81,12 @@
                                 </div>
                             </td>
                             <td>
-                                <h2>${{$item->preco}}</h2>
+                                <h2>${{number_format($item->model->preco_venda ?? $item->model->preco_regular, 2, ',', '.')}}</h2>
                             </td>
                             <td>
                                 <div class="qty-box">
                                     <div class="input-group">
-                                        <input type="number" name="quantidade" data-rowid="{{$item->rowId}}" onchange="updadeQuantidade(this)" class="form-control input-number" value="{{$item->qty}}">
+                                        <input type="number" name="quantidade" data-rowid="{{$item->rowId}}" onchange="updateQuantidade(this)" class="form-control input-number" value="{{$item->qty}}">
                                     </div>
                                 </div>
                             </td>
@@ -94,7 +94,7 @@
                                 <h2 class="td-color">${{$item->subtotal()}}</h2>
                             </td>
                             <td>
-                                <a href="javascript:void(0)" onclick="removeItemFromCart('{{$item->rowId}}')">
+                                <a href="javascript:void(0)" onclick="deleteItem('{{$item->rowId}}')">
                                     <i class="fas fa-times"></i>
                                 </a>
                             </td>
@@ -107,7 +107,7 @@
                 <div class="row">
                     <div class="col-sm-7 col-5 order-1">
                         <div class="left-side-button text-end d-flex d-block justify-content-end">
-                            <a href="javascript:void(0)" class="text-decoration-underline theme-color d-block text-capitalize">Limpar todos os items</a>
+                            <a href="javascript:void(0)" onclick="limparCarrinho()" class="text-decoration-underline theme-color d-block text-capitalize">Limpar todos os items</a>
                         </div>
                     </div>
                     <div class="col-sm-5 col-7">
@@ -152,7 +152,7 @@
                                         <h6>Total <span>${{Cart::instance('carrinho')->total()}}</span></h6>
                                     </div>
                                     <div class="bottom-details">
-                                        <a href="checkout">Process Checkout</a>
+                                        <a href="checkout">Checkout</a>
                                     </div>
                                 </div>
                             </div>
@@ -173,21 +173,46 @@
     </div>
 </section>
 
-<form id="updateCarrinho" action="{{route('carrinho.update')}}" method="POST">
+<form id="updateQuantCar" action="{{route('carrinho.update')}}" method="POST">
     @csrf
     @method('put')
     <input type="hidden" id="rowId" name="rowId" />
     <input type="hidden" id="quantidade" name="quantidade" />
 </form>
+
+<form id="delete" action="{{route('carrinho.delete')}}" method="post">
+    @csrf
+    @method('delete')
+    <input type="hidden" id="rowId_D" name="rowId" />
+</form>
+
+<form id="limpar" action="{{route('carrinho.limpar')}}" method="post">
+    @csrf
+    @method('delete') 
+</form>
+
 @endsection
 
 @push('scripts')
     <script>
-        function updateQuantidade(qty)
+        function updateQuantidade(quantidade)
         {
-            $('#rowId').val($(qty).data('rowid'));
-            $('#quantidade').val($(qty).val());
-            $('#updateCarrinhoQty').submit();
+            $('#rowId').val($(quantidade).data('rowid'));
+            $('#quantidade').val($(quantidade).val());
+            $('#updateQuantCar').submit();
         }      
+    </script>
+    <script>
+        function deleteItem(rowId)
+        {
+            $('#rowId_D').val(rowId);
+            $('#delete').submit();
+        }       
+    </script>
+    <script>
+        function limparCarrinho()
+        {
+            $('#limpar').submit();
+        }
     </script>
 @endpush

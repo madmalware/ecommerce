@@ -144,9 +144,9 @@
                                             <li><a href="{{route('index')}}" class="nav-link menu-title">Home</a></li>
                                             <li><a href="{{route('comprar')}}" class="nav-link menu-title">Comprar</a></li>
                                             <li><a href="{{route('carrinho')}}" class="nav-link menu-title">Carrinho</a></li>
-                                            <li><a href="about-us.html" class="nav-link menu-title">Sobre nós</a></li>
-                                            <li><a href="contact-us.html" class="nav-link menu-title">Contato</a></li>
-                                            <li><a href="blog.html" class="nav-link menu-title">Blog</a></li>
+                                            <li><a href="" class="nav-link menu-title">Sobre nós</a></li>
+                                            <li><a href="" class="nav-link menu-title">Contato</a></li>
+                                            <li><a href="" class="nav-link menu-title">Blog</a></li>
                                         </ul>
                                     </div>
                                 </div>
@@ -283,7 +283,7 @@
                         <div class="footer-contact">
                             <div class="brand-logo">
                                 <a href="index.htm" class="footer-logo float-start">
-                                    <img src="{{ ('assets/images/logo.png') }}" class="f-logo img-fluid blur-up lazyload"
+                                    <img src="" class="f-logo img-fluid blur-up lazyload"
                                         alt="logo">
                                 </a>
                             </div>
@@ -311,16 +311,16 @@
                                         <a href="index.htm" class="font-dark">Home</a>
                                     </li>
                                     <li>
-                                        <a href="shop.html" class="font-dark">Shop</a>
+                                        <a href="shop.html" class="font-dark">Comprar</a>
                                     </li>
                                     <li>
-                                        <a href="about-us.html" class="font-dark">About Us</a>
+                                        <a href="about-us.html" class="font-dark">Sobre Nós</a>
                                     </li>
                                     <li>
                                         <a href="#" class="font-dark">Blog</a>
                                     </li>
                                     <li>
-                                        <a href="contact-us.html" class="font-dark">Contact</a>
+                                        <a href="contact-us.html" class="font-dark">Contato</a>
                                     </li>
                                 </ul>
                             </div>
@@ -334,19 +334,19 @@
                             <div class="footer-content">
                                 <ul>
                                     <li>
-                                        <a href="shop.html" class="font-dark">Latest Shoes</a>
+                                        <a href="shop.html" class="font-dark">Sapatos</a>
                                     </li>
                                     <li>
-                                        <a href="shop.html" class="font-dark">Branded Jeans</a>
+                                        <a href="shop.html" class="font-dark">Jeans</a>
                                     </li>
                                     <li>
-                                        <a href="shop.html" class="font-dark">New Jackets</a>
+                                        <a href="shop.html" class="font-dark">Jaquetas</a>
                                     </li>
                                     <li>
-                                        <a href="shop.html" class="font-dark">Colorfull Hoodies</a>
+                                        <a href="shop.html" class="font-dark">Hoodies</a>
                                     </li>
                                     <li>
-                                        <a href="shop.html" class="font-dark">Shiner Goggles</a>
+                                        <a href="shop.html" class="font-dark">Óculos</a>
                                     </li>
                                 </ul>
                             </div>
@@ -380,15 +380,14 @@
                     </div>
                     <div class="col-xl-3 col-lg-4 col-sm-6 d-none d-sm-block">
                         <div class="footer-newsletter">
-                            <h3>Let’s stay in touch</h3>
+                            <h3>Vamos Manter Contato</h3>
                             <div class="form-newsletter">
                                 <div class="input-group mb-4">
-                                    <input type="text" class="form-control color-4" placeholder="Your Email Address">
+                                    <input type="text" class="form-control color-4" placeholder="Seu Email">
                                     <span class="input-group-text" id="basic-addon4"><i
                                             class="fas fa-arrow-right"></i></span>
                                 </div>
-                                <p class="font-dark mb-0">Keep up to date with our latest news and special offers.
-                                </p>
+                                <p class="font-dark mb-0">Mantenha se informado sobre nossas últimas ofertas.</p>
                             </div>
                         </div>
                     </div>
@@ -400,7 +399,7 @@
                 <div class="row gy-3">
                     <div class="col-md-6">
                         <ul>
-                            <li class="font-dark">We accept:</li>
+                            <li class="font-dark">Nós Aceitamos:</li>
                             <li>
                                 <a href="javascript:void(0)">
                                     <img src="assets/images/payment-icon/1.jpg" class="img-fluid blur-up lazyload"
@@ -434,33 +433,6 @@
             </div>
         </div>
     </footer>
-
-    <div class="modal fade newletter-modal" id="newsletter">
-        <div class="modal-dialog modal-dialog-centered">
-            <div class="modal-content ">
-                <div class="modal-header">
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                </div>
-
-                <div class="modal-body">
-                    <img src="assets/images/newletter-icon.png" class="img-fluid blur-up lazyload" alt="">
-                    <div class="modal-title">
-                        <h2 class="tt-title">Sign up for our Newsletter!</h2>
-                        <p class="font-light">Never miss any new updates or products we reveal, stay up to date.</p>
-                        <p class="font-light">Oh, and it's free!</p>
-
-                        <div class="input-group mb-3">
-                            <input placeholder="Email" class="form-control" type="text">
-                        </div>
-
-                        <div class="cancel-button text-center">
-                            <button class="btn default-theme w-100" data-bs-dismiss="modal"
-                                type="button">Submit</button>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
     </div>
 
     <div class="modal fade cart-modal" id="addtocart" tabindex="-1" role="dialog" aria-label="myModalLabel"
