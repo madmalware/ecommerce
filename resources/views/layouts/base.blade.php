@@ -143,10 +143,9 @@
                                             </li>
                                             <li><a href="{{route('index')}}" class="nav-link menu-title">Home</a></li>
                                             <li><a href="{{route('comprar')}}" class="nav-link menu-title">Comprar</a></li>
-                                            <li><a href="cart/list.html" class="nav-link menu-title">Carrinho</a></li>
+                                            <li><a href="{{route('carrinho')}}" class="nav-link menu-title">Carrinho</a></li>
                                             <li><a href="about-us.html" class="nav-link menu-title">Sobre nós</a></li>
-                                            <li><a href="contact-us.html" class="nav-link menu-title">Contato</a>
-                                            </li>
+                                            <li><a href="contact-us.html" class="nav-link menu-title">Contato</a></li>
                                             <li><a href="blog.html" class="nav-link menu-title">Blog</a></li>
                                         </ul>
                                     </div>
@@ -171,10 +170,10 @@
                                     </li>
                                     <li class="onhover-dropdown wislist-dropdown">
                                         <div class="cart-media">
-                                            <a href="cart/list.html">
+                                            <a href="{{route('carrinho')}}">
                                                 <i data-feather="shopping-cart"></i>
                                                 <span id="cart-count" class="label label-theme rounded-pill">
-                                                    0
+                                                    {{Cart::instance('carrinho')->content()->count()}}
                                                 </span>
                                             </a>
                                         </div>

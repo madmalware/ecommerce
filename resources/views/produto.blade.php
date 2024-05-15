@@ -28,7 +28,7 @@
                 <nav>
                     <ol class="breadcrumb">
                         <li class="breadcrumb-item">
-                            <a href="{{route('app.index')}}">
+                            <a href="{{route('index')}}">
                                 <i class="fas fa-home"></i>
                             </a>
                         </li>
@@ -69,7 +69,7 @@
                                 <div class="col-lg-10">
                                     <div class="details-image-1 ratio_asos">
                                         <div>
-                                            <img src="{{asset('assets/images/fashion/product/front')}}/{{$produto->image}}" class="img-fluid w-100 image_zoom_cls-0 blur-up lazyload" alt="{{$product->name}}">
+                                            <img src="{{asset('assets/images/fashion/product/front')}}/{{$produto->image}}" class="img-fluid w-100 image_zoom_cls-0 blur-up lazyload" alt="{{$produto->nome}}">
                                         </div>
 
                                         @if($produto->images) 
@@ -201,15 +201,17 @@
                                 <div class="product-buttons">
                                     <a href="javascript:void(0)" class="btn btn-solid">
                                         <i class="fa fa-bookmark fz-16 me-2"></i>
-                                        <span>Wishlist</span>
+                                        <span>Lista de Desejos</span>
                                     </a>
-                                    <a href="javascript:void(0)"  id="cartEffect" class="btn btn-solid hover-solid btn-animation">
+                                    <a href="javascript:void(0)"  onclick="event.preventDefault();document.getElementById('addAoCarrinho').submit();" id="cartEffect" class="btn btn-solid hover-solid btn-animation">
                                         <i class="fa fa-shopping-cart"></i>
-                                        <span>Add To Cart</span>                                       
+                                        <span>Adicionar Ao Carrinho</span>
+                                        <form id="addAoCarrinho" method="post" action="{{route('carrinho.store')}}">
+                                            @csrf
+                                            <input type="hidden" name="id" value="{{$produto->id}}">                                             
+                                            <input type="hidden" name="quantidade" id="qty" value="1">
+                                        </form>
                                     </a>
-
-
-
                                 </div>
 
                                 <ul class="product-count shipping-order">
@@ -791,20 +793,20 @@
             <div class="col-12">
                 <h2 class="mb-lg-4 mb-3">Customers Also Bought These</h2>
                 <div class="product-wrapper product-style-2 slide-4 p-0 light-arrow bottom-space">
-                    @foreach ($rproducts as $rproduct)
+                    @foreach ($rprodutos as $rproduto)
                                             
                     <div>
                         <div class="product-box">
                             <div class="img-wrapper">
                                 <div class="front">
-                                    <a href="{{route('shop.product.details',['slug'=>$rproduct->slug])}}">
-                                        <img src="{{asset('assets/images/fashion/product/front')}}/{{$rproduct->image}}"
+                                    <a href="{{route('produto.detalhe',['slug'=>$rproduto->slug])}}">
+                                        <img src="{{asset('assets/images/fashion/product/front')}}/{{$rproduto->image}}"
                                             class="bg-img blur-up lazyload" alt="">
                                     </a>
                                 </div>
                                 <div class="back">
-                                    <a href="{{route('shop.product.details',['slug'=>$rproduct->slug])}}">
-                                        <img src="{{asset('assets/images/fashion/product/back')}}/{{$rproduct->image}}"
+                                    <a href="{{route('produto.detalhe',['slug'=>$rproduto->slug])}}">
+                                        <img src="{{asset('assets/images/fashion/product/back')}}/{{$rproduto->image}}"
                                             class="bg-img blur-up lazyload" alt="">
                                     </a>
                                 </div>
@@ -824,7 +826,7 @@
                                         </li>
 
                                         <li>
-                                            <a href="javascript:void(0)" class="wishlist">
+                                            <a href="javascript:void(0)" class="Lista de Desejos">
                                                 <i data-feather="heart"></i>
                                             </a>
                                         </li>
@@ -853,14 +855,14 @@
                                     </ul>
                                 </div>
                                 <div class="main-price">
-                                    <a href="{{route('shop.product.details',['slug'=>$rproduct->slug])}}" class="font-default">
-                                        <h5>{{$rproduct->name}}</h5>
+                                    <a href="{{route('produto.detalhe',['slug'=>$rproduto->slug])}}" class="font-default">
+                                        <h5>{{$rproduto->nome}}</h5>
                                     </a>
                                     <div class="listing-content">
-                                        <span class="font-light">{{$rproduct->category->name}}</span>
-                                        <p class="font-light">{{$rproduct->short_description}}</p>
+                                        <span class="font-light">{{$rproduto->categoria->nome}}</span>
+                                        <p class="font-light">{{$rproduto->pequena_descricao}}</p>
                                     </div>
-                                    <h3 class="theme-color">@if($rproduct->sale_price) {{ $product->sale_price }} @else {{$rproduct->regular_price}} @endif</h3>
+                                    <h3 class="theme-color">@if($rproduto->preco_venda) {{ $produto->preco_venda }} @else {{$rproduto->preco_regular}} @endif</h3>
                                     <button onclick="location.href = 'cart.html';" class="btn listing-content">Add
                                         To Cart</button>
                                 </div>

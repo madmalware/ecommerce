@@ -15,8 +15,9 @@ class ComprarController extends Controller
 
     public function detalheProduto($slug)
     {
-        $produto = Produto::where('slug',$slug)->first();    
-        return view('produto',['produto'=>$produto]);
+        $produto = Produto::where('slug',$slug)->first();
+        $rprodutos = Produto::where('slug','!=', $slug)->inRandomOrder('id')->get()->take(8);   
+        return view('produto',['produto'=>$produto,'rprodutos'=>$rprodutos]);
     }
 
 }
