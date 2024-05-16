@@ -9,7 +9,7 @@ Route::get('/cadastro', function () {
     return view('cadastro');
 });
 
-Route::get('index', [App\Http\Controllers\AppController::class, 'index'])->name('index');
+Route::get('/', [App\Http\Controllers\AppController::class, 'index'])->name('index');
 
 //COMPRAR CONTROLLER
 Route::get('/comprar', [ComprarController::class, 'index'])->name('comprar');
