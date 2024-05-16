@@ -5,13 +5,13 @@
     <section class="pt-0 poster-section">
         <div class="poster-image slider-for custome-arrow classic-arrow">
             <div>
-                <img src="assets/images/furniture-images/poster/1.png" class="img-fluid blur-up lazyload" alt="">
+                <img src="assets/images/esmerilhadeira.png" class="img-fluid blur-up lazyload" alt=""> {{-- imagem grande 1 --}}
             </div>
             <div>
-                <img src="assets/images/furniture-images/poster/2.png" class="img-fluid blur-up lazyload" alt="">
+                <img src="assets/images/furadeira.webp" class="img-fluid blur-up lazyload" alt=""> {{-- imagem grande 2 --}}
             </div>
             <div>
-                <img src="assets/images/furniture-images/poster/3.png" class="img-fluid blur-up lazyload" alt="">
+                <img src="assets/images/furniture-images/poster/" class="img-fluid blur-up lazyload" alt=""> {{-- imagem grande 3 --}}
             </div>
         </div>
         <div class="slider-nav image-show">
