@@ -113,6 +113,9 @@
     </style>
 
     <header class="header-style-2" id="home">
+    <div class="container-fluid bg-dark text-white text-center">
+        <a class="navbar-brand" href="#">CADASTRE-SE E GANHE 100 METALCOINS!!</a>
+    </div> 
         <div class="main-header navbar-searchbar">
             <div class="container-fluid-lg">
                 <div class="row">
