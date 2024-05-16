@@ -29,7 +29,7 @@ Route::middleware('auth')->group(function(){
 });
 
 Route::middleware('auth', 'auth.admin')->group(function(){
-    Route::get('/admin', [UserController::class, 'index'])->name('admin.index');
+    Route::get('/admin', [AdminController::class, 'index'])->name('admin.index');
 });
 
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+Route::get('', [App\Http\Controllers\AppController::class, 'index'])->name('home');
