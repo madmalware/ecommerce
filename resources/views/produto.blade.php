@@ -7,6 +7,7 @@
 @section("content")
 
 <section class="breadcrumb-section section-b-space" style="padding-top:20px;padding-bottom:20px;">
+
     <ul class="circles">
         <li></li>
         <li></li>
@@ -19,6 +20,7 @@
         <li></li>
         <li></li>
     </ul>
+
     <div class="container">
         <div class="row">
             <div class="col-12">
@@ -26,7 +28,7 @@
                 <nav>
                     <ol class="breadcrumb">
                         <li class="breadcrumb-item">
-                            <a href="{{route('app.index')}}">
+                            <a href="{{route('index')}}">
                                 <i class="fas fa-home"></i>
                             </a>
                         </li>
@@ -36,7 +38,7 @@
             </div>
         </div>
     </div>
-</section> <!-- Shop Section start -->
+</section>
 
 <section>
     <div class="container">
@@ -51,9 +53,9 @@
                                         <div>
                                             <img src="{{asset('assets/images/fashion/product/front')}}/{{$produto->image}}" class="img-fluid blur-up lazyload" alt="{{$produto->nome}}">
                                         </div>
-                                        @if($product->images) 
+                                        @if($produto->images) 
                                         @php 
-                                            $images = explode(',',$product->images);
+                                            $images = explode(',',$produto->images);
                                         @endphp  
                                         @foreach ($images as $image)
                                             <div>
@@ -67,12 +69,12 @@
                                 <div class="col-lg-10">
                                     <div class="details-image-1 ratio_asos">
                                         <div>
-                                            <img src="{{asset('assets/images/fashion/product/front')}}/{{$product->image}}" class="img-fluid w-100 image_zoom_cls-0 blur-up lazyload" alt="{{$product->name}}">
+                                            <img src="{{asset('assets/images/fashion/product/front')}}/{{$produto->image}}" class="img-fluid w-100 image_zoom_cls-0 blur-up lazyload" alt="{{$produto->nome}}">
                                         </div>
 
-                                        @if($product->images) 
+                                        @if($produto->images) 
                                         @php 
-                                            $images = explode(',',$product->images);
+                                            $images = explode(',',$produto->images);
                                         @endphp  
                                         @foreach ($images as $image)
                                             <div>
@@ -199,15 +201,17 @@
                                 <div class="product-buttons">
                                     <a href="javascript:void(0)" class="btn btn-solid">
                                         <i class="fa fa-bookmark fz-16 me-2"></i>
-                                        <span>Wishlist</span>
+                                        <span>Lista de Desejos</span>
                                     </a>
-                                    <a href="javascript:void(0)"  id="cartEffect" class="btn btn-solid hover-solid btn-animation">
+                                    <a href="javascript:void(0)"  onclick="event.preventDefault();document.getElementById('addAoCarrinho').submit();" id="cartEffect" class="btn btn-solid hover-solid btn-animation">
                                         <i class="fa fa-shopping-cart"></i>
-                                        <span>Add To Cart</span>                                       
+                                        <span>Adicionar Ao Carrinho</span>
+                                        <form id="addAoCarrinho" method="post" action="{{route('carrinho.store')}}">
+                                            @csrf
+                                            <input type="hidden" name="id" value="{{$produto->id}}">                                             
+                                            <input type="hidden" name="quantidade" id="qty" value="1">
+                                        </form>
                                     </a>
-
-
-
                                 </div>
 
                                 <ul class="product-count shipping-order">
@@ -777,6 +781,95 @@
                             </div>
                         </div>
                     </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="ratio_asos section-b-space overflow-hidden">
+    <div class="container">
+        <div class="row">
+            <div class="col-12">
+                <h2 class="mb-lg-4 mb-3">Customers Also Bought These</h2>
+                <div class="product-wrapper product-style-2 slide-4 p-0 light-arrow bottom-space">
+                    @foreach ($rprodutos as $rproduto)
+                                            
+                    <div>
+                        <div class="product-box">
+                            <div class="img-wrapper">
+                                <div class="front">
+                                    <a href="{{route('produto.detalhe',['slug'=>$rproduto->slug])}}">
+                                        <img src="{{asset('assets/images/fashion/product/front')}}/{{$rproduto->image}}"
+                                            class="bg-img blur-up lazyload" alt="">
+                                    </a>
+                                </div>
+                                <div class="back">
+                                    <a href="{{route('produto.detalhe',['slug'=>$rproduto->slug])}}">
+                                        <img src="{{asset('assets/images/fashion/product/back')}}/{{$rproduto->image}}"
+                                            class="bg-img blur-up lazyload" alt="">
+                                    </a>
+                                </div>
+                                <div class="cart-wrap">
+                                    <ul>
+                                        <li>
+                                            <a href="javascript:void(0)" class="addtocart-btn"
+                                                data-bs-toggle="modal" data-bs-target="#addtocart">
+                                                <i data-feather="shopping-bag"></i>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="javascript:void(0)" data-bs-toggle="modal"
+                                                data-bs-target="#quick-view">
+                                                <i data-feather="eye"></i>
+                                            </a>
+                                        </li>
+
+                                        <li>
+                                            <a href="javascript:void(0)" class="Lista de Desejos">
+                                                <i data-feather="heart"></i>
+                                            </a>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="product-details">
+                                <div class="rating-details">
+                                    <span class="font-light grid-content">Cupiditate Minus</span>
+                                    <ul class="rating mt-0">
+                                        <li>
+                                            <i class="fas fa-star theme-color"></i>
+                                        </li>
+                                        <li>
+                                            <i class="fas fa-star theme-color"></i>
+                                        </li>
+                                        <li>
+                                            <i class="fas fa-star"></i>
+                                        </li>
+                                        <li>
+                                            <i class="fas fa-star"></i>
+                                        </li>
+                                        <li>
+                                            <i class="fas fa-star"></i>
+                                        </li>
+                                    </ul>
+                                </div>
+                                <div class="main-price">
+                                    <a href="{{route('produto.detalhe',['slug'=>$rproduto->slug])}}" class="font-default">
+                                        <h5>{{$rproduto->nome}}</h5>
+                                    </a>
+                                    <div class="listing-content">
+                                        <span class="font-light">{{$rproduto->categoria->nome}}</span>
+                                        <p class="font-light">{{$rproduto->pequena_descricao}}</p>
+                                    </div>
+                                    <h3 class="theme-color">@if($rproduto->preco_venda) {{ $produto->preco_venda }} @else {{$rproduto->preco_regular}} @endif</h3>
+                                    <button onclick="location.href = 'cart.html';" class="btn listing-content">Add
+                                        To Cart</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    @endforeach                    
                 </div>
             </div>
         </div>

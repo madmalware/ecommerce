@@ -18,7 +18,7 @@ return new class extends Migration
             $table->string('pequena_descricao');
             $table->text('descricao');
             $table->decimal('preco_regular');
-            $table->decimal('preco_venda')->nullable();
+            $table->decimal('preco_venda');
             $table->enum('estoque_status',["em_estoque","sem_estoque"]);
             $table->unsignedInteger('quantidade')->default(1);
             $table->string('image')->nullable();

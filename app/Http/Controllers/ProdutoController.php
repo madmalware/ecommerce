@@ -8,6 +8,8 @@ use App\Http\Requests\UpdateProdutoRequest;
 
 class ProdutoController extends Controller
 {
+    protected $fillable = ['nome', 'preco'];
+    
     /**
      * Display a listing of the resource.
      */

@@ -25,6 +25,7 @@ class ProdutoFactory extends Factory
             'pequena_descricao' => $this->faker->text(200),
             'descricao' => $this->faker->text(500),
             'preco_regular' => $this->faker->numberBetween(1,22),
+            'preco_venda' => $this->faker->numberBetween(1,50),
             'estoque_status' => 'em_estoque',
             'quantidade' => $this->faker->numberBetween(100,200),
             'image' => $image_nome,
