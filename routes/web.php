@@ -32,10 +32,4 @@ Route::middleware('auth', 'auth.admin')->group(function(){
     Route::get('/admin', [AdminController::class, 'index'])->name('admin.index');
 });
 
-<<<<<<< HEAD
 Route::get('', [App\Http\Controllers\AppController::class, 'index'])->name('home');
-=======
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
-
-Route::get('/perfiladm', [App\Http\Controllers\HomeController::class, 'index'])->name('perfiladm');
->>>>>>> ceea98a72002ba4834a7e9cf4b8f72aa23fdc44e
