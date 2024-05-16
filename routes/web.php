@@ -31,3 +31,5 @@ Route::middleware('auth', 'auth.admin')->group(function(){
 });
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+
+Route::get('/perfiladm', [App\Http\Controllers\HomeController::class, 'index'])->name('perfiladm');
