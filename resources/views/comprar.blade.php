@@ -2,6 +2,15 @@
 
 @push('styles')
     <link id="color-link" rel="stylesheet" type="text/css" href="assets/css/demo2.css">
+    <style>
+        nav svg{
+            height: 20px;
+        }
+
+        .product-box .product-details h5{
+            width: 100%;
+        } 
+    </style>
 @endpush
 
 @section('content')
@@ -19,10 +28,11 @@
             <li></li>
             <li></li>
         </ul>
+        
         <div class="container">
             <div class="row">
                 <div class="col-12">
-                    <h3>Shop</h3>
+                    <h3>Comprar</h3>
                     <nav>
                         <ol class="breadcrumb">
                             <li class="breadcrumb-item">
@@ -30,7 +40,7 @@
                                     <i class="fas fa-home"></i>
                                 </a>
                             </li>
-                            <li class="breadcrumb-item active" aria-current="page">Shop</li>
+                            <li class="breadcrumb-item active" aria-current="page">Comprar</li>
                         </ol>
                     </nav>
                 </div>
@@ -450,13 +460,13 @@
                             <div class="product-box">
                                 <div class="img-wrapper">
                                     <div class="front">
-                                        <a href="product/nihil-beatae-sit-sed.html">
+                                        <a href="{{route('produto.detalhe', ['slug'=>$produto->slug])}}">
                                             <img src="assets/images/fashion/product/front/{{$produto->image}}"
                                                 class="bg-img blur-up lazyload" alt="">
                                         </a>
                                     </div>
                                     <div class="back">
-                                        <a href="product/nihil-beatae-sit-sed.html">
+                                        <a href="{{route('produto.detalhe', ['slug'=>$produto->slug])}}">
                                             <img src="assets/images/fashion/product/back/{{$produto->image}}"
                                                 class="bg-img blur-up lazyload" alt="">
                                         </a>
@@ -503,7 +513,7 @@
                                         </ul>
                                     </div>
                                     <div class="main-price">
-                                        <a href="product/nihil-beatae-sit-sed.html" class="font-default">
+                                        <a href="{{route('produto.detalhe', ['slug'=>$produto->slug])}}" class="font-default">
                                             <h5 class="ms-0">{{$produto->nome}}</h5>
                                         </a>
                                         <div class="listing-content">
