@@ -124,14 +124,14 @@
                             <div class="menu-left">
                                 <div class="brand-logo">
                                     <a href="{{route('index')}}">
-                                        <img src="" class="h-logo img-fluid blur-up lazyload"
+                                        <img src="assets/images/logo.png" class="h-logo img-fluid blur-up lazyload"
                                             alt="logo">
                                     </a>
                                 </div>
 
                             </div>
                             <nav>
-                                <div class="main-navbar">
+                                <div class="main-navbar">   
                                     <div id="mainnav">
                                         <div class="toggle-nav">
                                             <i class="fa fa-bars sidebar-bar"></i>
