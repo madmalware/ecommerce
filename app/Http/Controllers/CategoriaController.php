@@ -13,7 +13,7 @@ class CategoriaController extends Controller
      */
     public function index()
     {
-        //
+        return view('/admin/categoria');
     }
 
     /**
@@ -21,7 +21,8 @@ class CategoriaController extends Controller
      */
     public function create()
     {
-        //
+        $categoria = new Categoria();
+        $categoria->nome = $request->nome;
     }
 
     /**

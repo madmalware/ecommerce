@@ -3,6 +3,7 @@
 use App\Http\Controllers\ComprarController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\CarrinhoController;
+use App\Http\Controllers\CategoriaController;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/cadastro', function () {
@@ -22,6 +23,10 @@ Route::put('/carrinho/update', [CarrinhoController::class, 'update'])->name('car
 Route::delete('/carrinho/delete', [CarrinhoController::class, 'delete'])->name('carrinho.delete');
 Route::delete('/carrinho/limpar', [CarrinhoController::class, 'limpar'])->name('carrinho.limpar');
 
+//CATEGORIA CADASTRO
+Route::get('/categoria', [CategoriaController::class, 'index'])->name('categoria');
+
+
 Auth::routes();
 
 Route::middleware('auth')->group(function(){
@@ -32,10 +37,4 @@ Route::middleware('auth', 'auth.admin')->group(function(){
     Route::get('/admin', [AdminController::class, 'index'])->name('admin.index');
 });
 
-<<<<<<< HEAD
 Route::get('', [App\Http\Controllers\AppController::class, 'index'])->name('home');
-=======
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
-
-Route::get('/perfiladm', [App\Http\Controllers\HomeController::class, 'index'])->name('perfiladm');
->>>>>>> ceea98a72002ba4834a7e9cf4b8f72aa23fdc44e
