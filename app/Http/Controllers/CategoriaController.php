@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Categoria;
 use App\Http\Requests\StoreCategoriaRequest;
 use App\Http\Requests\UpdateCategoriaRequest;
+use Illuminate\Http\Request;
 
 class CategoriaController extends Controller
 {
@@ -13,7 +14,8 @@ class CategoriaController extends Controller
      */
     public function index()
     {
-        return view('/admin/categoria');
+        $categorias = Categoria::all();
+        return view('/admin/categoria', ['categoria' => $categorias]);
     }
 
     /**
@@ -21,16 +23,18 @@ class CategoriaController extends Controller
      */
     public function create()
     {
-        $categoria = new Categoria();
-        $categoria->nome = $request->nome;
+        
     }
 
     /**
      * Store a newly created resource in storage.
      */
-    public function store(StoreCategoriaRequest $request)
+    public function store(Request $request)
     {
-        //
+        $categoria = new Categoria();
+        $categoria->nome = $request->nome;
+
+        $categoria->save();
     }
 
     /**
@@ -60,8 +64,10 @@ class CategoriaController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(Categoria $categoria)
+    public function delete(Request $request)
     {
-        //
+        $rowId = $request->rowId;
+        Categoria::instance('categoria')->remove($rowId);
+        return redirect()->route('categoria');
     }
 }
