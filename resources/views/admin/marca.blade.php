@@ -18,7 +18,7 @@
     <div class="container">
         <div class="row">
             <div class="col-12">
-                <h3>Categorias</h3>
+                <h3>Marcas</h3>
                 <nav>
                     <ol class="breadcrumb">
                         <li class="breadcrumb-item">
@@ -26,7 +26,7 @@
                                 <i class="fas fa-home"></i>
                             </a>
                         </li>
-                        <li class="breadcrumb-item active" aria-current="page">Categorias</li>
+                        <li class="breadcrumb-item active" aria-current="page">Marcas</li>
                     </ol>
                 </nav>
             </div>

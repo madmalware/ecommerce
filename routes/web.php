@@ -4,6 +4,7 @@ use App\Http\Controllers\ComprarController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\CarrinhoController;
 use App\Http\Controllers\CategoriaController;
+use App\Http\Controllers\ProdutoController;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/cadastro', function () {
@@ -25,6 +26,9 @@ Route::delete('/carrinho/limpar', [CarrinhoController::class, 'limpar'])->name('
 
 //CATEGORIA CADASTRO
 Route::get('/categoria', [CategoriaController::class, 'index'])->name('categoria');
+
+//PRODUTOS CRUD
+Route::get('/cadastro/produto', [ProdutoController::class, 'index'])->name('produto');
 
 
 Auth::routes();
