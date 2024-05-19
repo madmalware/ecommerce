@@ -32,7 +32,20 @@ class ProdutoController extends Controller
      */
     public function store(StoreProdutoRequest $request)
     {
-        //
+        $request->validate([
+            'nome' => 'required|string|max:255',
+            'preco_regular' => 'required|numeric',
+            'preco_venda' => 'required|numeric',
+            'quantidade' => 'required|integer',
+            'descricao' => 'required|string',
+            'categoria_id' => 'required|integer',
+            'marca_id' => 'required|integer',
+        ]);
+
+        $produto = new Produto($request->all());
+        $produto->save();
+
+        return redirect()->route('produtos.index')->with('success', 'Produto criado com sucesso.');
     }
 
     /**
@@ -56,7 +69,19 @@ class ProdutoController extends Controller
      */
     public function update(UpdateProdutoRequest $request, Produto $produto)
     {
-        //
+        $request->validate([
+            'nome' => 'required|string',
+            'preco_regular' => 'required|numeric',
+            'preco_venda' => 'required|numeric',
+            'quantidade' => 'required|integer',
+            'descricao' => 'required|string',
+            'categoria_id' => 'required|integer',
+            'marca_id' => 'required|integer',
+        ]);
+
+        $produto->update($request->all());
+
+        return redirect()->route('produtos.index')->with('success', 'Produto atualizado com sucesso.');
     }
 
     /**
@@ -64,6 +89,8 @@ class ProdutoController extends Controller
      */
     public function destroy(Produto $produto)
     {
-        //
+        $produto->delete();
+
+        return redirect()->route('produtos.index')->with('success', 'Produto deletado com sucesso.');
     }
 }
