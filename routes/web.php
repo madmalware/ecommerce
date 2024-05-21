@@ -1,7 +1,9 @@
 <?php
 
 use App\Http\Controllers\ComprarController;
+use App\Http\Controllers\MarcaController;
 use App\Http\Controllers\UserController;
+use App\Http\Controllers\AdminController;
 use App\Http\Controllers\CarrinhoController;
 use App\Http\Controllers\CategoriaController;
 use App\Http\Controllers\ProdutoController;
@@ -39,6 +41,12 @@ Route::middleware('auth')->group(function(){
 
 Route::middleware('auth', 'auth.admin')->group(function(){
     Route::get('/admin', [AdminController::class, 'index'])->name('admin.index');
+
+    // MARCA
+    Route::get('/marcas',[MarcaController::class,'index'])->name('marcas.index');
+    Route::post('/marcas', [MarcaController::class, 'store'])->name('marcas.store');
+    Route::put('/marcas', [MarcaController::class, 'update'])->name('marcas.update');
+    Route::delete('/marcas', [MarcaController::class, 'destroy'])->name('marcas.destroy');
 });
 
 Route::get('', [App\Http\Controllers\AppController::class, 'index'])->name('home');

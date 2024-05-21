@@ -29,7 +29,7 @@ class MarcaPolicy
      */
     public function create(User $user): bool
     {
-        //
+        return $user->utype === 'ADM';
     }
 
     /**
@@ -37,7 +37,7 @@ class MarcaPolicy
      */
     public function update(User $user, Marca $marca): bool
     {
-        //
+        return $user->utype === 'ADM';
     }
 
     /**
@@ -45,7 +45,7 @@ class MarcaPolicy
      */
     public function delete(User $user, Marca $marca): bool
     {
-        //
+        return $user->utype === 'ADM';
     }
 
     /**

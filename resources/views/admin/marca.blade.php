@@ -37,12 +37,13 @@
 <section class="section-b-space">
     <div class="container">
         <div class="row">
-            <form class="row g-3 section-b-space">
+            <form action="{{ route('marcas.store') }}" method="POST" class="row g-3 section-b-space">
+                @csrf
                 <div class="col-5">
-                    <input type="text" class="form-control" id="" placeholder="Nome da Categoria">
+                    <input type="text" class="form-control" name="nome" placeholder="Nome da Marca">
                 </div>
                 <div class="col-5">
-                     <button class="btn btn-solid-default rounded btn">Adicionar</button>
+                    <button type="submit" class="btn btn-solid-default rounded btn">Adicionar</button>
                 </div>
             </form>
         </div>
@@ -58,26 +59,40 @@
                         </tr>
                     </thead>
                     <tbody>
-                        <tr>
-                            <td>
-                                <a>id</a>
-                            </td>
-                            <td>
-                                <a>nome</a>
-                            </td>
-                            <td>
-                                <button class="btn btn-solid-default rounded btn">Editar</button>
-                            </td>
-                            <td>
-                                <button class="btn btn-solid-default rounded btn">Excluir</button>
-                            </td>
-                        </tr>
+                    @foreach($marcas as $marca)
+                    <tr>
+                        <td>{{ $marca->id }}</td>
+                        <td>
+                            <form action="{{ route('marcas.update', $marca->id) }}" method="POST" class="d-inline-flex">
+                                @csrf
+                                @method('PUT')
+                                <input type="text" class="form-control" name="nome" value="{{ $marca->nome }}" style="width: auto;">
+                                <button type="submit" class="btn btn-solid-default rounded btn">Salvar</button>
+                            </form>
+                        </td>
+                        <td>
+                            <button onclick="showEditForm({{ $marca->id }})" class="btn btn-solid-default rounded btn">Editar</button>
+                        </td>
+                        <td>
+                            <form action="{{ route('marcas.destroy', $marca->id) }}" method="POST">
+                                @csrf
+                                @method('DELETE')
+                                <button type="submit" class="btn btn-solid-default rounded btn">Excluir</button>
+                            </form>
+                        </td>
+                    </tr>
+                    @endforeach
                     </tbody>
                 </table>
             </div>
         </div>
     </div>
 </section>
-
-
 @endsection
+
+<script>
+    function showEditForm(id) {
+        var form = document.querySelector(`form[action*="${id}"][method="POST"]`);
+        form.style.display = 'flex';
+    }
+</script>
